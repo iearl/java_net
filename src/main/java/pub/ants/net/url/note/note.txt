@@ -1,0 +1,24 @@
+maven仓库中没有cpdetector找不到对应得资源，如何将cpdetector_1.0.10.jar添加到本地仓库
+配置好maven得环境变量。
+将jar下载下来，通过以下命令将jar按章到本地仓库
+mvn install:install-file -Dfile=<path-to-file> -DgroupId=<group-id> -DartifactId=<artifact-id> -Dversion=<version> -Dpackaging=<packaging>
+
+<path-to-file>: 要安装的JAR的本地路径
+              ：d:/cpdetector_1.0.10.jar
+<group-id>：要安装的JAR的Group Id
+          ：pub.ants
+<artifact-id>: 要安装的JAR的 Artificial Id
+             ：cpdetector
+<version>: JAR 版本
+         ：1.0.10
+<packaging>: 打包类型，例如JAR
+           ：jar
+
+例如：
+mvn install:install-file -Dfile=d:/cpdetector_1.0.10.jar -DgroupId=pub.ants -DartifactId=cpdetector -Dversion=1.0.10 -Dpackaging=jar
+在pom,xml引入即可
+<dependency>
+    <groupId>pub.ants</groupId>
+    <artifactId>cpdetector</artifactId>
+    <version>1.0.10</version>
+</dependency>
